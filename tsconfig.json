@@ -1,0 +1,52 @@
+{
+    "include": ["src/**/*", "config/**/*", "webpack/**/*"],
+    "exclude": [],
+    "typeAcquisition": {
+        "enable": true,
+        "disableFilenameBasedTypeAcquisition": true
+    },
+    "ts-node": {
+        "compilerOptions": {
+            "module": "CommonJS"
+        }
+    },
+    "compilerOptions": {
+        "baseUrl": "./",
+        "module": "NodeNext",
+        "target": "ESNext",
+        "moduleResolution": "NodeNext",
+        "resolveJsonModule": true,
+        "resolvePackageJsonImports": true,
+        "sourceMap": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "outDir": "build/",
+        "removeComments": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "strictBindCallApply": true,
+        "strictFunctionTypes": true,
+        "strictNullChecks": true,
+        "strictPropertyInitialization": true,
+        "useUnknownInCatchVariables": true,
+        "allowUnreachableCode": false,
+        "alwaysStrict": true,
+        "noUnusedLocals": true,
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitAny": true,
+        "noImplicitOverride": true,
+        "noImplicitReturns": true,
+        "noPropertyAccessFromIndexSignature": true,
+        "noUncheckedIndexedAccess": true,
+        "noUnusedParameters": true,
+        "paths": {
+            "@/config/*": ["./config/*"],
+            "@/constants/*": ["./src/constants/*"],
+            "@/routes/*": ["./src/routes/*"],
+            "@/utils/*": ["./src/utils/*"],
+            "@/middleware/*": ["./src/middleware/*"],
+            "@/service/*": ["./src/service/*"],
+            "@/core/*": ["./src/core/*"]
+        }
+    }
+}

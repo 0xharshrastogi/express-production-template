@@ -1,0 +1,9 @@
+build/
+vscode
+node_modules
+logs
+config
+webpack.config.ts
+webpack.common.ts
+webpack.development.ts
+webpack.production.ts
