@@ -1,6 +1,5 @@
 {
-    "include": ["src/**/*", "config/**/*", "webpack/**/*"],
-    "exclude": [],
+    "include": ["src/**/*", "config/**/*", "tests/**/*", "lib/**/*"],
     "typeAcquisition": {
         "enable": true,
         "disableFilenameBasedTypeAcquisition": true
@@ -40,13 +39,14 @@
         "noUncheckedIndexedAccess": true,
         "noUnusedParameters": true,
         "paths": {
-            "@/config/*": ["./config/*"],
-            "@/constants/*": ["./src/constants/*"],
-            "@/routes/*": ["./src/routes/*"],
-            "@/utils/*": ["./src/utils/*"],
-            "@/middleware/*": ["./src/middleware/*"],
-            "@/service/*": ["./src/service/*"],
-            "@/core/*": ["./src/core/*"]
+            "@/config/*": ["config/*"],
+            "@/constants/*": ["src/constants/*"],
+            "@/routes/*": ["src/routes/*"],
+            "@/utils/*": ["src/utils/*"],
+            "@/middleware/*": ["src/middleware/*"],
+            "@/service/*": ["src/service/*"],
+            "@/core/*": ["src/core/*"],
+            "@/lib/*": ["lib/*"]
         }
     }
 }

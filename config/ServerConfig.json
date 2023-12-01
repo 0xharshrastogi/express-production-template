@@ -1,5 +1,8 @@
 {
-    "host": "localhost",
-    "port": 5050,
-    "secure": false
+    "env_file": {
+        "local": "environment/local.env",
+        "development": "environment/development.env",
+        "production": "environment/production.env",
+        "staging": "environment/staging.env"
+    }
 }

@@ -1,5 +1,7 @@
 # Production Ready Express TypeScript Starter Template
 
+![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2Fharshrastogiexe%2Fexpress-production-template&label=Visitor&labelColor=%234bb543&countColor=%23555555&style=flat-square&labelStyle=upper)
+
 This is a production-ready starter template for building web applications using Express, TypeScript, ESLint, Prettier, and Webpack. It also includes a robust OOP-style logging system using Winston for comprehensive application monitoring. Whether you are starting a new project or need a quick setup for your Express application, this template will save you time, ensure code quality, and streamline your production setup.
 
 ## Features

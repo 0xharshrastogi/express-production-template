@@ -1,4 +1,5 @@
 {
+    "editor.rulers": [120],
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "eslint.codeActionsOnSave.mode": "problems",
@@ -8,5 +9,13 @@
     },
     "debug.javascript.terminalOptions": {
         "skipFiles": ["<node_internals>/**"]
+    },
+    "jest.autoRun": "off",
+    "jest.testExplorer": {},
+    "[shellscript]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
+    },
+    "[ignore]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format"
     }
 }

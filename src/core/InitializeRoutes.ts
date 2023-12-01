@@ -1,16 +1,15 @@
 import type { Express } from 'express';
 
-import { type IAbstractRouteController } from '@/routes/AbstractRouteController';
-import { HelloWorldRouteController } from '@/routes/HelloWorld/HelloWorldRouteController';
+import type { Controller } from '@/routes/Controller';
+import { HelloWorldRouteController } from '@/routes/HelloWorld';
 
 export class InitializeRoutes {
     public static async initialize(app: Express): Promise<void> {
-        const routes = await InitializeRoutes.getRoutes();
-        routes.forEach((controller) => app.use('/', controller.router));
+        for (const controller of await this.getControllers()) app.use(controller.path, controller.getRouter());
     }
 
-    private static async getRoutes(): Promise<IAbstractRouteController[]> {
-        const routes: IAbstractRouteController[] = [];
+    private static async getControllers(): Promise<Controller[]> {
+        const routes: Controller[] = [];
         routes.push(new HelloWorldRouteController());
         return await Promise.resolve(routes);
     }

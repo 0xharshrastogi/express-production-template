@@ -1,25 +1,39 @@
+import './InitEnvironment';
+
 import type { Express } from 'express';
 import express from 'express';
 
-import * as ServerConfig from '@/config/ServerConfig.json';
 import { Logger } from '@/utils/Logger';
 
+import { config } from './config';
 import { InitializeMiddleware } from './InitializeMiddleware';
 import { InitializeRoutes } from './InitializeRoutes';
 
-export const server = async (): Promise<void> => {
-    const app: Express = express();
+export class Server {
+    private readonly app: Express;
 
-    const { host, port, secure } = ServerConfig;
+    constructor() {
+        this.app = express();
+    }
 
-    InitializeMiddleware.initCommonMiddleware(app);
-    await InitializeRoutes.initialize(app);
-    InitializeMiddleware.initErrorHandlingMiddleware(app);
+    public async start(): Promise<void> {
+        await this.setup();
+        this.app.listen(config.PORT, config.HOST, () => {
+            this.onStart();
+        });
+    }
 
-    app.listen(port, host, () => {
+    private async setup(): Promise<void> {
+        InitializeMiddleware.initCommonMiddleware(this.app);
+        await InitializeRoutes.initialize(this.app);
+        InitializeMiddleware.initErrorHandlingMiddleware(this.app);
+    }
+
+    private onStart(): void {
         const logger = Logger.getLogger();
-        const link = `${secure ? 'https://' : 'http://'}${host}:${port}`;
+        const protocol = config.SECURE ? 'https' : 'http';
+        const link = `${protocol}://${config.HOST}:${config.PORT}`;
 
         logger.info(`Server started listening on ${link}`);
-    });
-};
+    }
+}

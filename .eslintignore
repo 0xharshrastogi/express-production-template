@@ -7,3 +7,8 @@ webpack.config.ts
 webpack.common.ts
 webpack.development.ts
 webpack.production.ts
+lint-staged.config.js
+coverage
+.nyc_output
+dist/
+jest.config.ts

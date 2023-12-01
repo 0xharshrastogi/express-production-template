@@ -10,8 +10,6 @@ export class InitializeMiddleware {
         middleware.useCors();
         middleware.useLogRequest();
         middleware.useBodyParser();
-
-
         middleware.useURLEncoded();
     }
 

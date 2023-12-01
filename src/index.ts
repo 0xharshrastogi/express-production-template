@@ -1,3 +1,4 @@
-import { server } from '@/core/server';
+import { Server } from '@/core/server';
 
-void server();
+const server = new Server();
+void server.start();

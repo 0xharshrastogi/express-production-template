@@ -1,3 +1,4 @@
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 import path from 'path';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 import type webpack from 'webpack';
@@ -8,7 +9,7 @@ const config: webpack.Configuration = {
     target: 'node',
     output: {
         filename: 'main.js',
-        path: 'build',
+        path: path.resolve(__dirname, '../build'),
     },
     module: {
         rules: [
@@ -27,6 +28,11 @@ const config: webpack.Configuration = {
             }),
         ],
     },
+    plugins: [
+        new CopyWebpackPlugin({
+            patterns: [{ from: 'environment', to: 'environment' }],
+        }),
+    ],
     externals: [nodeExternals()],
 };
 
