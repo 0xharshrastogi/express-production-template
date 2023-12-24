@@ -4,19 +4,19 @@ import { Router } from 'express';
 import { HttpMethod } from '@/lib/enum';
 
 export interface IRoute {
-    path: string;
     method: HttpMethod;
     middlewares: ((request: Request, response: Response, next: NextFunction) => Promise<void> | void)[];
+    path: string;
     handler(request: Request, response: Response): Promise<void> | void;
 }
 
 export abstract class Controller {
+    public readonly middleware: ((request: Request, response: Response, next: NextFunction) => Promise<void> | void)[] =
+        [];
+
     public readonly router = Router();
 
     public readonly routes: IRoute[] = [];
-
-    public readonly middleware: ((request: Request, response: Response, next: NextFunction) => Promise<void> | void)[] =
-        [];
 
     public abstract path: string;
 

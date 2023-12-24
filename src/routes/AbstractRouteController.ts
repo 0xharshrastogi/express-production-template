@@ -19,15 +19,15 @@ export abstract class AbstractRouteController {
         this.InitializePost();
     }
 
-    public runService(_req: Request, res: Response): void {
-        res.send(`runService Method for ${this.path}does not exist !`);
-    }
-
     public InitializeGet(): void {
         this.router.get(this.path, this.runService.bind(this)).bind(this);
     }
 
     public InitializePost(): void {
         this.router.post(this.path, this.runService.bind(this)).bind(this);
+    }
+
+    public runService(_req: Request, res: Response): void {
+        res.send(`runService Method for ${this.path}does not exist !`);
     }
 }

@@ -15,10 +15,6 @@ export class CommonMiddleware {
         this.app.use(json());
     }
 
-    public useURLEncoded(): void {
-        this.app.use(urlencoded({ extended: true }));
-    }
-
     public useCors(): void {
         this.app.use(cors());
     }
@@ -29,5 +25,9 @@ export class CommonMiddleware {
             logger.info(`method=${req.method} path=${req.originalUrl}`);
             next();
         });
+    }
+
+    public useURLEncoded(): void {
+        this.app.use(urlencoded({ extended: true }));
     }
 }

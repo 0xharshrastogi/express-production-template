@@ -60,14 +60,6 @@ export class HttpError extends Error {
     }
 
     /**
-     * Returns a string representation of the HttpError.
-     * @returns {string} - The string representation of the HttpError.
-     */
-    override toString(): string {
-        return `${this.name} (${this.critical}): ${this.message}`;
-    }
-
-    /**
      * Returns a JSON representation of the HttpError.
      * @returns {Record<string, unknown>} - The JSON representation of the HttpError.
      */
@@ -78,5 +70,13 @@ export class HttpError extends Error {
             success: false,
             message: this.message,
         };
+    }
+
+    /**
+     * Returns a string representation of the HttpError.
+     * @returns {string} - The string representation of the HttpError.
+     */
+    override toString(): string {
+        return `${this.name} (${this.critical}): ${this.message}`;
     }
 }

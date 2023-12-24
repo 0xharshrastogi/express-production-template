@@ -7,9 +7,9 @@ import type { IRoute } from '../Controller';
 import { Controller } from '../Controller';
 
 export class HelloWorldRouteController extends Controller {
-    public override path = '/hello-world';
-
     public helloWorldService: HelloWorld = new HelloWorld();
+
+    public override path = '/hello-world';
 
     public override routes: IRoute[] = [
         {

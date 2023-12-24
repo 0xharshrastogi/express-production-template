@@ -5,7 +5,9 @@ import { HelloWorldRouteController } from '@/routes/HelloWorld';
 
 export class InitializeRoutes {
     public static async initialize(app: Express): Promise<void> {
-        for (const controller of await this.getControllers()) app.use(controller.path, controller.getRouter());
+        for (const controller of await this.getControllers()) {
+            app.use(controller.path, controller.getRouter());
+        }
     }
 
     private static async getControllers(): Promise<Controller[]> {
